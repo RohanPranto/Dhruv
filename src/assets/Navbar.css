@@ -1,0 +1,64 @@
+p{
+    color: white;
+}
+
+.nav-item .nav-link{
+    color: white;
+}
+.nav-item{
+    padding: 0 18px;
+}
+.navbar .navbar-brand{
+    color: white;
+    font-family: 'Rancho', cursive;
+    font-size: 2em;
+    padding: 0;
+}
+.navbar{
+    background-color: black;
+    z-index: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.butn {
+    position: relative;
+    width: 100px;
+    height: 30px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 8px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .butn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 108px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .butn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    filter: blur(15px);
+  }
+  
+  

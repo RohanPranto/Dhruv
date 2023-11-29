@@ -1,0 +1,9 @@
+/* Global Styles.css */
+
+/* Hide scrollbar */
+
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  

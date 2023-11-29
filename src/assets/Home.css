@@ -1,0 +1,64 @@
+/* font-family: 'Comfortaa', sans-serif;
+font-family: 'Cookie', cursive;
+font-family: 'Rancho', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Shantell Sans', cursive;
+font-family: 'Ubuntu Mono', monospace; */
+
+
+.home{
+    background-image: url("../assets/home.jpg");
+    background-size: cover;
+    height: 100vh; /* 100% of the viewport height */
+  }
+  h1{
+    color: rgb(238, 223, 195);
+    font-family: 'Shantell Sans', cursive;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 3rem;
+    line-height: 1.7em;
+  }
+  .about-container{
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 70%;
+  }
+  .about-container h1{
+    padding-top:70px;
+    font-family: 'Comfortaa', sans-serif;
+  }
+  .about-container p{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.5rem;
+    line-height: 1.5em;
+    padding-bottom: 100px;
+    margin-bottom: 0;
+    text-align:center;
+  }
+  .contact-container{
+    background-color: black;
+  }
+  .contact-container p{
+    margin-bottom: 0;
+    font-size: 1.1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .contact-container a{
+    text-decoration: none;
+    color: rgb(238, 223, 195);
+  }
+.contact-container .social a{
+  font-size: larger;
+}
+.contact-container .social{
+  text-align: end;
+}
+@media screen and (max-width: 768px) {
+  .contact-container .social ,.contact-container .credit{
+    text-align: center;
+  }
+  
+}
