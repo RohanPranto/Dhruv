@@ -50,5 +50,17 @@ p{
   .butn:hover .text {
     color: #f7f3f3;
   }
-  
-  
+  .navbar-brand img{
+    width:15%;
+  }
+  @media screen and (max-width: 768px) {
+    .navbar-brand img{
+      width: 100px;
+      padding-left: 0;
+    }
+    .navbar-brand{
+      width:80px;
+      padding-left: 10px;
+    }
+    
+  }

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { firestore } from '../firebase';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Upload() {
+  const { isAuthenticated } = useAuth0();
   const [image, setImage] = useState(null);
   const [author, setAuthor] = useState('');
   const [camera, setCamera] = useState('');
@@ -29,6 +31,10 @@ function Upload() {
   };
 
   const handleSubmit = async (e) => {
+    if (!isAuthenticated) {
+      alert('You must be logged in to upload a photo');
+      return;
+    }
     e.preventDefault();
 
     setLoading(true);
@@ -72,31 +78,35 @@ function Upload() {
   return (
     <div className="container mt-5">
       <h2 className="mb-4">Upload Photo</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="image" className="form-label">Image Upload:</label>
-          <input type="file" className="form-control" id="image" accept="image/*" onChange={handleImageChange} />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="author" className="form-label">Author:</label>
-          <input type="text" className="form-control" id="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="camera" className="form-label">Camera:</label>
-          <input type="text" className="form-control" id="camera" value={camera} onChange={(e) => setCamera(e.target.value)} />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="settings" className="form-label">Camera Settings:</label>
-          <input type="text" className="form-control" id="settings" value={settings} onChange={(e) => setSettings(e.target.value)} />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="caption" className="form-label">Caption/Description:</label>
-          <textarea className="form-control" id="caption" value={caption} onChange={(e) => setCaption(e.target.value)} />
-        </div>
-        <button type="submit" className="btn btn-primary" disabled={loading}>
-          {loading ? 'Loading...' : 'Upload Photo'}
-        </button>
-      </form>
+     {isAuthenticated ? (
+       <form onSubmit={handleSubmit}>
+       <div className="mb-3">
+         <label htmlFor="image" className="form-label">Image Upload:</label>
+         <input type="file" className="form-control" id="image" accept="image/*" onChange={handleImageChange} />
+       </div>
+       <div className="mb-3">
+         <label htmlFor="author" className="form-label">Author:</label>
+         <input type="text" className="form-control" id="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
+       </div>
+       <div className="mb-3">
+         <label htmlFor="camera" className="form-label">Camera:</label>
+         <input type="text" className="form-control" id="camera" value={camera} onChange={(e) => setCamera(e.target.value)} />
+       </div>
+       <div className="mb-3">
+         <label htmlFor="settings" className="form-label">Camera Settings:</label>
+         <input type="text" className="form-control" id="settings" value={settings} onChange={(e) => setSettings(e.target.value)} />
+       </div>
+       <div className="mb-3">
+         <label htmlFor="caption" className="form-label">Caption/Description:</label>
+         <textarea className="form-control" id="caption" value={caption} onChange={(e) => setCaption(e.target.value)} />
+       </div>
+       <button type="submit" className="btn btn-primary" disabled={loading}>
+         {loading ? 'Loading...' : 'Upload Photo'}
+       </button>
+     </form>
+     ) : (
+        <h3 style={{color:"black"}}>Please login to upload a photo</h3>
+     )}
     </div>
   );
 }
