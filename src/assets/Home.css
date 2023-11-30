@@ -12,9 +12,10 @@ font-family: 'Ubuntu Mono', monospace; */
     height: 100vh; /* 100% of the viewport height */
   }
   h1{
-    color: rgb(238, 223, 195);
+    color: rgb(238, 200, 129);
     font-family: 'Shantell Sans', cursive;
-    font-weight: 600;
+    font-weight: 700;
+    padding-bottom: 70px;
     letter-spacing: 1px;
     font-size: 3rem;
     line-height: 1.7em;
@@ -56,9 +57,16 @@ font-family: 'Ubuntu Mono', monospace; */
 .contact-container .social{
   text-align: end;
 }
+.pagination{
+  align-content: center;
+  justify-content: center;
+}
 @media screen and (max-width: 768px) {
   .contact-container .social ,.contact-container .credit{
     text-align: center;
+  }
+  h1{
+    font-size: 2.1em;
   }
   
 }

@@ -5,7 +5,7 @@ import '../assets/Album.css';
 function Album() {
   const [photos, setPhotos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const photosPerPage = 16; // Adjust the number of photos per page as needed
+  const photosPerPage = 15; // Adjust the number of photos per page as needed
 
   useEffect(() => {
     const fetchPhotos = async () => {
@@ -54,6 +54,7 @@ function Album() {
   return (
     <div className="container album-container mt-5 ">
         <h1 className='album-h1'>Your shared Shots!</h1>
+        <hr />
       <div className="row">
         {renderCards()}
       </div>

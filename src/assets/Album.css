@@ -2,8 +2,11 @@
 color: rgb(86, 84, 84);font-family: 'Comfortaa', sans-serif;
 /* 
 font-family: 'Shantell Sans', cursive; */
+text-align: center;
 }
-
+hr{
+    display: none;
+}
 .album-container .card-title{
     font-family: 'Comfortaa', sans-serif;
     font-weight: bold;
@@ -16,8 +19,7 @@ font-family: 'Shantell Sans', cursive; */
     margin-bottom: 0;
 }
 .card {
-    width: 100%; /* Adjust the width of your card container as needed */
-    height: 100%; /* Set a fixed height for the square frame */
+    aspect-ratio: 1/1; /* Set a fixed height for the square frame */
     overflow: hidden; /* Ensure that content outside the frame is hidden */
     display: flex;
     align-items: center;
@@ -27,6 +29,23 @@ font-family: 'Shantell Sans', cursive; */
   .card-img-top {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* This property maintains the aspect ratio and covers the entire container */
+    object-fit:cover; /* This property maintains the aspect ratio and covers the entire container */
     background-color: rgb(209, 209, 209);
+  }
+
+  @media screen and (max-width: 768px) {
+    .album-h1{
+      font-size: 1.8em;
+      padding: 1px 10px;
+text-align: center;
+    }
+    hr{
+        display: block;
+        margin: 10px;
+        margin-top: 0;
+        width: 200px;
+        margin-left: auto;
+        border: 2px dotted black;
+        margin-right: auto;
+    }
   }
