@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import "../assets/Navbar.css" ;
 import { Link } from 'react-router-dom';
 // import logo from "../assets/logoo.png" ;
-import logo from "../assets/logo3.png" ;
+import "bootstrap-icons/font/bootstrap-icons.css";
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
@@ -46,7 +46,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <Link className="navbar-brand" style={{paddingLeft:10}} to="/">
-          <img src={logo} alt="" />
+        <i className="bi bi-stars"></i>  Dhruv
         </Link>
         <button
           className="navbar-toggler"

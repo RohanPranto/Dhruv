@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import Album from './components/Album';
 import Upload from './pages/Upload';
 import './App.css';
+import prac from './pages/Prac';
+import Prac from './pages/Prac';
 function App() {
   return (
     <Router>
@@ -17,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home /> }/>
           <Route path="/upload" element={<Upload/>} />
+          <Route path="/prac" element={<Prac/>} />
         </Routes>
       </div>
     </Router>

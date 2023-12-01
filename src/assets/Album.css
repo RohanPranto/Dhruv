@@ -4,6 +4,9 @@ color: rgb(86, 84, 84);font-family: 'Comfortaa', sans-serif;
 font-family: 'Shantell Sans', cursive; */
 text-align: center;
 }
+.album-h1{
+  padding-bottom: 20px;
+}
 hr{
     display: none;
 }

@@ -28,7 +28,7 @@ function Album() {
 
   const renderCards = () => {
     return currentPhotos.map((photo) => (
-      <div key={photo.id} className="col-md-3 mb-6 col-lg-4 mb-5">
+      <div key={photo.id} className="col-md-3 mb-6 col-lg-4 mb-4">
         <div className="card">
           <img src={photo.imageURL} className="card-img-top" alt={photo.caption} />
           <div className="card-body">
@@ -58,7 +58,7 @@ function Album() {
       <div className="row">
         {renderCards()}
       </div>
-      <ul className="pagination" >
+      <ul className="pagination mb-4" >
         {pageNumbers.map((number) => (
           <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
             <a onClick={() => paginate(number)} href="#" className="page-link">
