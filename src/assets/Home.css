@@ -6,11 +6,13 @@ font-family: 'Shantell Sans', cursive;
 font-family: 'Ubuntu Mono', monospace; */
 
 
-.home{
-    background-image: url("../assets/home.jpg");
+.home {
+    background-image: url("../assets/output_image.webp");
     background-size: cover;
-    height: 100vh; /* 100% of the viewport height */
+    height: 100vh;
+    background-position: 100% 40%;
   }
+
   h1{
     color: rgb(238, 200, 129);
     font-family: 'Shantell Sans', cursive;
