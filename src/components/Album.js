@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../firebase';
 import '../assets/Album.css';
+import { Link } from 'react-router-dom';
 function Album() {
   const [photos, setPhotos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,7 +13,12 @@ function Album() {
       try {
         const photosCollection = collection(firestore, 'photos');
         const photosSnapshot = await getDocs(photosCollection);
-        const photosData = photosSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    
+        // Sort photos based on the timestamp in descending order
+        const photosData = photosSnapshot.docs
+          .map((doc) => ({ id: doc.id, ...doc.data() }))
+          .sort((a, b) => b.timestamp - a.timestamp);
+    
         setPhotos(photosData);
       } catch (error) {
         console.error('Error fetching photos:', error);
@@ -61,9 +67,9 @@ function Album() {
       <ul className="pagination mb-4" >
         {pageNumbers.map((number) => (
           <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
-            <a onClick={() => paginate(number)} href="#" className="page-link">
+            <Link onClick={() => paginate(number)} to="#" className="page-link">
               {number}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
