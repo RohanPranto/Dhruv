@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../firebase';
 import '../assets/Album.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 function Album() {
   const [photos, setPhotos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const photosPerPage = 15; // Adjust the number of photos per page as needed
+  const [selectedPhoto, setSelectedPhoto] = useState(null); // Add this line
+  const photosPerPage = 15;
+  const navigate = useNavigate(); // Add this line
 
   useEffect(() => {
     const fetchPhotos = async () => {
@@ -14,7 +17,6 @@ function Album() {
         const photosCollection = collection(firestore, 'photos');
         const photosSnapshot = await getDocs(photosCollection);
     
-        // Sort photos based on the timestamp in descending order
         const photosData = photosSnapshot.docs
           .map((doc) => ({ id: doc.id, ...doc.data() }))
           .sort((a, b) => b.timestamp - a.timestamp);
@@ -35,19 +37,22 @@ function Album() {
   const renderCards = () => {
     return currentPhotos.map((photo) => (
       <div key={photo.id} className="col-md-3 mb-6 col-lg-4 mb-4">
-        <div className="card">
-          <img src={photo.imageURL} className="card-img-top" alt={photo.caption} />
-          <div className="card-body">
-            {/* <h5 className="card-title">{photo.author}</h5> */}
-            {/* <p className="card-text">{photo.caption}</p> */}
-            {/* <a href="#" className="btn btn-primary">
-              Go somewhere
-            </a> */}
-            {/* MODAL GOES HERE */}
-          </div>
+        {/* Use onClick to set the selected photo and navigate to the preview page */}
+        <div className="card" onClick={() => handleCardClick(photo)}>
+          <Link to={`/photo/${photo.id}`} className="preview-link">
+            <img src={photo.imageURL} className="card-img-top" alt={photo.caption} />
+            <div className="card-body">
+              {/* Additional details if needed */}
+            </div>
+          </Link>
         </div>
       </div>
     ));
+  };
+
+  const handleCardClick = (photo) => {
+    setSelectedPhoto(photo);
+    navigate(`/preview/${photo.id}`);
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);

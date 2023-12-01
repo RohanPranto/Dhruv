@@ -108,9 +108,6 @@ function Upload() {
         <h3 style={{color:"black"}}>Please login to upload a photo</h3>
      )}
 
-{/* MODALS */}
-
-{/* MODAL 1 */}
 
     </div>
   );
