@@ -33,20 +33,19 @@ function Album() {
   const currentPhotos = photosData.slice(indexOfFirstPhoto, indexOfLastPhoto);
 
   const renderCards = () => {
-    return currentPhotos.map((photo) => (
-      <div key={photo.id} className="col-md-3 mb-6 col-lg-4 mb-4">
-        <Link to={`/photos/${photo.id}`}>
+    return currentPhotos.map((item) => (
+      <div key={item.id} className="col-md-3 mb-6 col-lg-4 mb-4">
+        <Link to={`/PhotoDetails/${item.id}`}>
           <div className="card">
-            <img src={photo.imageURL} className="card-img-top" alt={photo.caption} />
+            <img src={item.imageURL} className="card-img-top" alt={item.caption} />
             <div className="card-body">
-              {/* Additional details if needed */}
+              {/* <p style={{color:"black"}}>{item.caption}</p> */}
             </div>
           </div>
         </Link>
       </div>
     ));
   };
-  
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 

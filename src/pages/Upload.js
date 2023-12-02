@@ -37,19 +37,15 @@ function Upload() {
       return;
     }
     e.preventDefault();
-
+  
     setLoading(true);
-
+  
     // Upload the image to Firebase Storage and get the download URL
     const imageURL = await uploadImage();
-
-    // Create a unique ID for the document
-    const photoId = new Date().getTime().toString();
-
+  
     try {
       // Add data to Firestore
-      await addDoc(collection(firestore, 'photos'), {
-        id: photoId,
+      const docRef = await addDoc(collection(firestore, 'photos'), {
         author,
         camera,
         settings,
@@ -57,16 +53,16 @@ function Upload() {
         timestamp: new Date(),
         imageURL,
       });
-
-      console.log('Document written with ID: ', photoId);
-
+  
+      console.log('Document written with ID: ', docRef.id);
+  
       // Reset form after successful submission
       setImage(null);
       setAuthor('');
       setCamera('');
       setSettings('');
       setCaption('');
-
+  
       // Show alert after successful submission
       alert('Photo uploaded successfully');
     } catch (error) {
@@ -75,6 +71,7 @@ function Upload() {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="container mt-5">
