@@ -44,6 +44,7 @@ function PhotoDetails() {
         <p style={{color:"black"}}>Camera: {photo.camera}</p>
         <p style={{color:"black"}}>Settings: {photo.settings}</p>
         <p style={{color:"black"}}>Caption: {photo.caption}</p>
+        <p style={{color:"black"}}>Uploaded by {photo.userEmail}</p>
         </div>
         {/* Add more properties as needed */}
       </div>

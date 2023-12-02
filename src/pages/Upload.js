@@ -51,6 +51,7 @@ function Upload() {
         timestamp: new Date(),
         imageURL,
         userId: user.sub, // Save the user's unique identifier
+        userEmail: user.email, // Save the user's email
       });
 
       console.log('Document written with ID: ', docRef.id);
