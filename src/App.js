@@ -4,10 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Album from './components/Album';
 import Upload from './pages/Upload';
-import Preview from './pages/Preview';
 import './App.css';
+import PhotoDetails from './pages/PhotoDetails';
 function App() {
   return (
     <Router>
@@ -16,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home /> }/>
           <Route path="/upload" element={<Upload/>} />
-          <Route path="/preview/:photoId" element={<Preview/>} />
+          <Route path="/photos/:documentId" element={<PhotoDetails />} />
         </Routes>
       </div>
     </Router>

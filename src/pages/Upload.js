@@ -21,6 +21,7 @@ function Upload() {
   const uploadImage = async () => {
     if (image) {
       const storage = getStorage();
+      // @ts-ignore
       const storageRef = ref(storage, `images/${image.name}`);
       await uploadBytes(storageRef, image);
 
