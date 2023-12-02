@@ -30,10 +30,12 @@ const Profile = () => {
   return (
     isAuthenticated && (
       <div className="nav-item">
+        <Link to="/profile" style={{textDecoration:"none"}}>
         <li className="nav-link" style={{ display: 'flex', alignItems: 'center' }}>
           <p style={{ marginRight: '8px' , marginBottom:0 }}>{user.email}</p>
           <img style={{ height: 30, borderRadius: '50%' , paddingRight:8 }} src={user.picture} alt={user.name} />
         </li>
+        </Link>
       </div>
     )
   );
