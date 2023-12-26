@@ -43,6 +43,29 @@ blue color code 0157b4*/
   font: 1.5em "DM Sans", sans-serif;
   
 }
+.fade-in {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.image-container {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
 
 .row {
   margin-top: 50px;
