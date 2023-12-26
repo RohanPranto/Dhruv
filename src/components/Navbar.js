@@ -47,7 +47,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container">
-        <Link className="navbar-brand" style={{paddingLeft:10}} to="/">
+        <Link className="navbar-brand" style={{paddingLeft:0}} to="/">
         <i className="bi bi-stars"></i>  Dhruv
         </Link>
         <button
