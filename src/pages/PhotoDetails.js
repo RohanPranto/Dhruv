@@ -31,8 +31,8 @@ function PhotoDetails() {
   }
 
   return (
-    <div className="container mb-4">
-      <div className="row">
+    <div className="container mb-4 photodetails">
+      <div className="row" >
         <div className="col-lg-6">
           <img src={photo.imageURL} className="img-fluid mb-3" style={{borderRadius:"7px"}} alt={photo.caption} />
         </div>

@@ -47,6 +47,9 @@ blue color code 0157b4*/
 .row {
   margin-top: 50px;
 }
+.photodetails .row{
+  margin-top: 25px;
+}
 button {
   background-color: #02376f;
   color: white;
@@ -116,6 +119,9 @@ button:hover {
   .contact-container .social,
   .contact-container .credit {
     text-align: center;
+  }
+  .photodetails .row{
+    margin-top: 0;
   }
   h1 {
     font-size: 2.1em;
