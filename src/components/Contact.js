@@ -4,7 +4,7 @@ function Contact() {
   return (
     <div className='contact-container'>
         <div className="container">
-            <div className="row">
+            <div className="row" style={{marginTop:0}}>
                 <div className="col-lg-6 credit">
                 <p>All Rights Reserved ©️ <a href="https://rohanpranto.github.io">Rohan Biswas</a></p>
                 </div>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { firestore } from '../firebase';
-import '../assets/Album.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../firebase";
+import "../assets/Album.css";
+import { Link } from "react-router-dom";
 
 function Album() {
   const [photosData, setPhotosData] = useState([]);
@@ -12,16 +12,16 @@ function Album() {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const photosCollection = collection(firestore, 'photos');
+        const photosCollection = collection(firestore, "photos");
         const photosSnapshot = await getDocs(photosCollection);
-    
+
         const photosData = photosSnapshot.docs
           .map((doc) => ({ id: doc.id, ...doc.data() }))
           .sort((a, b) => b.timestamp - a.timestamp);
-    
+
         setPhotosData(photosData);
       } catch (error) {
-        console.error('Error fetching photos:', error);
+        console.error("Error fetching photos:", error);
       }
     };
 
@@ -34,15 +34,22 @@ function Album() {
 
   const renderCards = () => {
     return currentPhotos.map((item) => (
-      <div key={item.id} className="col-md-3 mb-6 col-lg-4 mb-4">
+      <div key={item.id} className="col-md-3 col-lg-4 mb-4">
         <Link to={`/PhotoDetails/${item.id}`}>
           <div className="card">
-            <img src={item.imageURL} className="card-img-top" alt={item.caption} />
+            <img
+              src={item.imageURL}
+              className="card-img-top"
+              alt={item.caption}
+            />
             <div className="card-body">
               {/* <p style={{color:"black"}}>{item.caption}</p> */}
             </div>
           </div>
         </Link>
+        <div className="like-icon">
+          <i className="bx bxs-like"></i>
+        </div>
       </div>
     ));
   };
@@ -55,21 +62,40 @@ function Album() {
   }
 
   return (
-    <div className="container album-container mt-5 ">
-      <h1 className='album-h1'>Your shared Shots!</h1>
-      <hr />
-      <div className="row">
+    <div className="container album-container ">
+      <div
+      style={{ border: "2px solid #0157b4", padding: 18, borderRadius: 12 }}
+    >
+      <h1
+        className="album-h1"
+        style={{
+          color: "#fff",
+          border: "2px solid #00254d",
+          padding: "3px",
+          borderRadius: 8,
+          textAlign: "center",
+          marginBottom:0,
+          backgroundColor:"#00254d"
+        }}
+      >
+        Your shared Shots!
+      </h1>
+      <div className="row" style={{ marginTop: 20 }}>
         {renderCards()}
       </div>
-      <ul className="pagination mb-4" >
+      <ul className="pagination mb-1">
         {pageNumbers.map((number) => (
-          <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
-            <Link onClick={() => paginate(number)} to="#" className="page-link">
+          <li
+            key={number}
+            className={`page-item ${currentPage === number ? "active" : ""}`}
+          >
+            <Link  onClick={() => paginate(number)} to="#" className="page-link"> 
               {number}
             </Link>
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 }

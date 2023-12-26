@@ -46,7 +46,7 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid">
+      <div className="container">
         <Link className="navbar-brand" style={{paddingLeft:10}} to="/">
         <i className="bi bi-stars"></i>  Dhruv
         </Link>
@@ -64,10 +64,10 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link style={{textDecoration:"none" , color:"white"}} to="/">Home</Link>
+              <Link className="nav-link" style={{textDecoration:"none" , color:"#02376f"}} to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link style={{textDecoration:"none" , color:"white"}} to="/upload">Upload</Link>
+              <Link className="nav-link" style={{textDecoration:"none" , color:"#02376f"}} to="/upload">Upload</Link>
             </li>
           </ul>
           {isAuthenticated ? (
