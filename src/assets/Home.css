@@ -82,6 +82,12 @@ button:hover {
   margin-bottom: 0;
   text-align: center;
 }
+.details{
+  border: 3px solid #14559b;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: rgba(128, 128, 128, 0.21);
+}
 .contact-container {
   background-color: black;
 }

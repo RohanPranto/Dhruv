@@ -36,10 +36,10 @@ function PhotoDetails() {
         <div className="col-lg-6">
           <img src={photo.imageURL} className="img-fluid mb-3" style={{borderRadius:"7px"}} alt={photo.caption} />
         </div>
-        <div className="col-lg-6">
+        <div className="col-lg-6 ">
       <h2 className="mb-4 mt-3">Photo Details</h2>
       <div>
-        <div className="alert alert-dark" >
+        <div className="details" >
         <p style={{color:"black"}}>Author: {photo.author}</p>
         <p style={{color:"black"}}>Camera: {photo.camera}</p>
         <p style={{color:"black"}}>Settings: {photo.settings}</p>
