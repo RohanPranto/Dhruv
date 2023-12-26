@@ -52,4 +52,7 @@ text-align: center;
         border: 2px dotted black;
         margin-right: auto;
     }
+    .album-container{
+      margin-top: 50px;
+    }
   }

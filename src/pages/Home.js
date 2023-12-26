@@ -61,15 +61,18 @@ function Home() {
             </div>
           </div>
           <div className="col-lg-6">
+            <div style={{padding:14,  border: "2px solid #0157b4" , borderRadius: "10px" }}>
             <img
               className="img-fluid"
               style={{ borderRadius: "8px" }}
               src={home}
               alt=""
             />
+            </div>
           </div>
         </div>
       </div>
+      
       <Album /> <br />
       <section id="aboout">
         <About />
