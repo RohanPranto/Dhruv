@@ -7,7 +7,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
-  return <button className='butn' onClick={() => loginWithRedirect()}>Log In</button>;
+  return <button className='butn ' onClick={() => loginWithRedirect()}>Log In</button>;
 };
 
 const LogoutButton = () => {

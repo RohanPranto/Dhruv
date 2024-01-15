@@ -27,7 +27,7 @@ function PhotoDetails() {
   }, [photoId]);
 
   if (!photo) {
-    return <div>Loading...</div>;
+    return <div className='container'>Loading...</div>;
   }
 
   return (
